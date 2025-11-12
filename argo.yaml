@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: microservices
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - appName: dummy2
+            repoURL: https://github.com/PC-1119/dummy2.git
+            namespace: default
+          - appName: dummy1
+            repoURL: https://github.com/PC-1119/dummy1.git
+            namespace: default
+  template:
+    metadata:
+      name: '{{appName}}'
+    spec:
+      project: default
+      source:
+        repoURL: '{{repoURL}}'
+        targetRevision: main
+        path: .
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
