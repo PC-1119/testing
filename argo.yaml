@@ -13,6 +13,9 @@ spec:
           - appName: dummy1
             repoURL: https://github.com/PC-1119/dummy1.git
             namespace: default
+          - appName: dummy3
+            repoURL: https://github.com/PC-1119/dummy3.git
+            namespace: default
   template:
     metadata:
       name: '{{appName}}'
