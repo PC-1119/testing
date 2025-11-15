@@ -3,13 +3,13 @@ kind: ApplicationSet
 metadata:
   name: testing
 spec:
-  generators:
+   generators:
     - git:
+        repoURL: https://github.com/PC-1119/dummy1
+        revision: main
         directory:
           path: dev/*
-          recurse: true
-          repoURL: https://github.com/PC-1119/dummy1
-          revision: main
+          recurse: false
   template:
     metadata:
       name: '{{path.basename}}'
