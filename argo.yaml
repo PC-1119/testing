@@ -5,7 +5,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: https://github.com/PC-1119/dummy1
+      repoURL: https://github.com/PC-1119/dummy1.com
       revision: main
       directories:
       - path: dev/*
@@ -15,7 +15,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/PC-1119/dummy1
+        repoURL: https://github.com/PC-1119/dummy1.com
         targetRevision: main
         path: '{{path}}'
       destination:
