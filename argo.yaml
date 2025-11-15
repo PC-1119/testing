@@ -5,11 +5,11 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/PC-1119/dummy1
-        revision: main
         directory:
           path: dev/*
           recurse: true
+          repoURL: https://github.com/PC-1119/dummy1
+          revision: main
   template:
     metadata:
       name: '{{path.basename}}'
