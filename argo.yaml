@@ -11,13 +11,13 @@ spec:
       - path: dev/*
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/PC-1119/dummy1
         targetRevision: main
-        path: '{{path.basename}}'
+        path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: dev
