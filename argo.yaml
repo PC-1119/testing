@@ -1,15 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: testing
+  name: prathyusha
 spec:
-   generators:
-    - git:
-        repoURL: https://github.com/PC-1119/dummy1
-        revision: main
-        directory:
-          path: dev/*
-          recurse: false
+  generators:
+  - git:
+      repoURL: https://github.com/PC-1119/dummy1
+      revision: main
+      directories:
+      - path: dev/*
   template:
     metadata:
       name: '{{path.basename}}'
@@ -18,7 +17,7 @@ spec:
       source:
         repoURL: https://github.com/PC-1119/dummy1
         targetRevision: main
-        path: 'dev/{{path.basename}}'
+        path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: dev
