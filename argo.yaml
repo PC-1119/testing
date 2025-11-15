@@ -17,7 +17,7 @@ spec:
       source:
         repoURL: https://github.com/PC-1119/dummy1
         targetRevision: main
-        path: '{{path}}'
+        path: '{{path.basename}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: dev
