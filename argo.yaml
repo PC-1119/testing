@@ -1,26 +1,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: wannatestargocd
+  name: dummy2-appset
+  namespace: argocd
 spec:
   generators:
-  - git:
-      repoURL: https://github.com/PC-1119/dummy1.com
-      revision: main
-      directories:
-      - path: dev/*
+    - list:
+        elements:
+          - name: dummy2
+            repoURL: https://github.com/PC-1119/dummy2.git
+            path: helm
+            namespace: dummy2
   template:
     metadata:
-      name: '{{path}}'
+      name: '{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/PC-1119/dummy1.com
+        repoURL: '{{repoURL}}'
         targetRevision: main
         path: '{{path}}'
+        helm:
+          valueFiles:
+            - values.yaml
       destination:
         server: https://kubernetes.default.svc
-        namespace: dev
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
