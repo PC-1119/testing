@@ -9,7 +9,7 @@ spec:
         elements:
           - name: dummy2
             repoURL: https://github.com/PC-1119/dummy2.git
-            path: helm
+            path: helm/templates
             namespace: dummy2
   template:
     metadata:
