@@ -9,8 +9,8 @@ spec:
         elements:
           - name: dummy2
             repoURL: https://github.com/PC-1119/dummy2.git
-            path: helm/templates
-            namespace: dummy2
+            path: helm
+            namespace: argocd
   template:
     metadata:
       name: '{{name}}'
